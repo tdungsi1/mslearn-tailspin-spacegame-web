@@ -58,7 +58,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(0bf9c42b-c6f4-4493-9d34-838e4373de49)'
     appType: 'webAppLinux'
-    WebAppName: 'hello2theworld2'
+    WebAppName: 'Daumahello2world'
     deployToSlotOrASE: true
     ResourceGroupName: 'ngoquangtri1112_rg_Linux_centralus'
     SlotName: 'production'
