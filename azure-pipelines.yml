@@ -51,3 +51,9 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure subscription 1(0bf9c42b-c6f4-4493-9d34-838e4373de49)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az login -u $(username -p $(password)'
