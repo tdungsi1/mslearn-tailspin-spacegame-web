@@ -56,4 +56,4 @@ steps:
     azureSubscription: 'Azure subscription 1(0bf9c42b-c6f4-4493-9d34-838e4373de49)'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az login -u $(username -p $(password)'
+    inlineScript: 'az login -u $(username) -p $(password)'
