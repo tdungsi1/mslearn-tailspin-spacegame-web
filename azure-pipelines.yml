@@ -20,10 +20,11 @@ steps:
 
 - task: SonarQubePrepare@4
   inputs:
+    SonarQube: 'Token4Azure'
     scannerMode: 'CLI'
     configMode: 'manual'
     cliProjectKey: 'Token4Azure'
-    cliProjectName: 'AzureScanner'
+    cliProjectName: 'Token4Azure'
     cliSources: '.'
 - task: SonarQubeAnalyze@4
   displayName: 'This ssaid this one is scan'
