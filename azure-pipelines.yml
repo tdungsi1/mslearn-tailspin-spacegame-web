@@ -19,12 +19,9 @@ steps:
     version: '$(dotnetSdkVersion)'
 
 - task: SonarQubePrepare@4
-  displayName: 'Prepare for sonar scanning'
   inputs:
-    SonarQube: 'Token4Azure'
     scannerMode: 'CLI'
     configMode: 'file'
-
 - task: SonarQubePublish@4
   displayName: 'Publish what'
   inputs:
