@@ -51,10 +51,15 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
 
-- task: AzureCLI@2
-  displayName : 'Login to Azure'
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(0bf9c42b-c6f4-4493-9d34-838e4373de49)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az login -u $(username) -p $(password)'
+    appType: 'webAppLinux'
+    WebAppName: 'hello2theworld2'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'ngoquangtri1112_rg_Linux_centralus'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|10.14'
+    StartupCommand: 'dotnet run'
