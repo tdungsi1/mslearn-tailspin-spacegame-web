@@ -62,6 +62,6 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'ngoquangtri1112_rg_Linux_centralus'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '/home/vsts/work/1/a/**/*.zip'
     RuntimeStack: 'NODE|10.14'
     StartupCommand: 'dotnet run'
