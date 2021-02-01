@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  name: Ubutudauma
   demands:
     - npm
 
@@ -39,9 +39,9 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+# - template: templates/build.yml
+#   parameters:
+#     buildConfiguration: 'Debug'
 
 - template: templates/build.yml
   parameters:
@@ -50,6 +50,8 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+
 
 - task: AzureRmWebAppDeployment@4
   inputs:
