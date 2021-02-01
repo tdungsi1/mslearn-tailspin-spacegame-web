@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'ubuntu-18.04'
   demands:
     - npm
 
@@ -18,14 +18,24 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+# - task: SonarQubePrepare@4
+#   inputs:
+#     SonarQube: 'Token4Azure'
+#     scannerMode: 'CLI'
+#     configMode: 'manual'
+#     cliProjectKey: 'Token4Azure'
+#     cliProjectName: 'Token4Azure'
+#     cliSources: '.'
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'Token4Azure'
     scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'Token4Azure'
-    cliProjectName: 'Token4Azure'
-    cliSources: '.'
+    configMode: 'file'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.branch.name=build-pipeline
 - task: SonarQubeAnalyze@4
   displayName: 'This ssaid this one is scan'
 - task: Npm@1
