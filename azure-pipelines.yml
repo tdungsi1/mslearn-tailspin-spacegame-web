@@ -17,17 +17,11 @@ steps:
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-
-
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'SonarQubeScanner'
     scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'Token4Azure'
-    cliProjectName: 'Token4Azure'
-    cliSources: '.''
-
+    configMode: 'file'
 - task: SonarQubeAnalyze@4
   displayName: 'This ssaid this one is scan'
   
