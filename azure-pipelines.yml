@@ -17,12 +17,18 @@ steps:
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
+
+# - task: SonarQubePrepare@4
+#   displayName: 'Prepare for sonar scanning'
+#   inputs:
+#     SonarQube: 'Token4Azure'
+#     scannerMode: 'CLI'
+#     configMode: 'file'
 - task: SonarQubePrepare@4
-  displayName: 'Prepare for sonar scanning'
   inputs:
-    SonarQube: 'Token4Azure'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    SonarQube: 'SonarQubeScanner'
+    scannerMode: 'MSBuild'
+    projectKey: 'Token4Azure'
 - task: SonarQubePublish@4
   displayName: 'Publish what'
   inputs:
