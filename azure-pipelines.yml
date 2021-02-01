@@ -18,26 +18,19 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-# - task: SonarQubePrepare@4
-#   inputs:
-#     SonarQube: 'Token4Azure'
-#     scannerMode: 'CLI'
-#     configMode: 'manual'
-#     cliProjectKey: 'Token4Azure'
-#     cliProjectName: 'Token4Azure'
-#     cliSources: '.'
+
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'Token4Azure'
+    SonarQube: 'SonarQubeScanner'
     scannerMode: 'CLI'
-    configMode: 'file'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner, 
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.branch.name=build-pipeline
+    configMode: 'manual'
+    cliProjectKey: 'Token4Azure'
+    cliProjectName: 'Token4Azure'
+    cliSources: '.''
+
 - task: SonarQubeAnalyze@4
   displayName: 'This ssaid this one is scan'
+  
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
