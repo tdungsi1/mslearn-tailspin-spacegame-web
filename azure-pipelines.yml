@@ -12,6 +12,7 @@ variables:
   dotnetSdkVersion: '3.1.300'
 
 steps:
+
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
@@ -49,3 +50,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
