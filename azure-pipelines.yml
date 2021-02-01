@@ -20,14 +20,11 @@ steps:
 
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'Token4Azure'
     scannerMode: 'CLI'
-    configMode: 'file'
-- task: SonarQubePublish@4
-  displayName: 'Publish what'
-  inputs:
-    pollingTimeoutSec: '300'
-
+    configMode: 'manual'
+    cliProjectKey: 'Token4Azure'
+    cliProjectName: 'AzureScanner'
+    cliSources: '.'
 - task: SonarQubeAnalyze@4
   displayName: 'This ssaid this one is scan'
 - task: Npm@1
