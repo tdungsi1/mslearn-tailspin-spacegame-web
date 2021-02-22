@@ -17,13 +17,13 @@ steps:
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'SonarQubeScanner'
-    scannerMode: 'CLI'
-    configMode: 'file'
-- task: SonarQubeAnalyze@4
-  displayName: 'This ssaid this one is scan'
+#- task: SonarQubePrepare@4
+#  inputs:
+#    SonarQube: 'SonarQubeScanner'
+#    scannerMode: 'CLI'
+#    configMode: 'file'
+#- task: SonarQubeAnalyze@4
+#  displayName: 'This ssaid this one is scan'
   
 - task: Npm@1
   displayName: 'Run npm install'
